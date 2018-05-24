@@ -75,19 +75,19 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
     public void sendBus(){
         Log.d(TAG, "Bus.post() <- Автобус поехал");
-        bus.post(new BusEvent());
+        bus.post(new MainActivity());
     }
 
     @Subscribe
-    public void changeFragment(BusEvent event){
+    public void changeFragment(MainActivity activity){
 
         Log.d(TAG, "Стартовала функция замены фрагмента");
 
-        FragmentManager fragmentManager = event.getSupportFragmentManager();
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
 
         FragmentTransaction ft = fragmentManager.beginTransaction();
         Log.d(TAG, "Начинаю выполнять метод replace()");
-        ft.replace(R.id.recycler, new ProfileFragment());
+        ft.replace(R.id.frag_container, new ProfileFragment());
         Log.d(TAG, "Закончил выполнять метод replace()");
 
         Log.d(TAG, "commit -> Начало");

@@ -25,7 +25,6 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment,
                 container, false);
-
         mRecyclerView = view.findViewById(R.id.recycler);
 
         // use a linear layout manager
